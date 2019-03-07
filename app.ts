@@ -1,11 +1,30 @@
-let backgound = 'red'
+// type Complex = {name: string, yearOfBirth: number, clacAge: () => number, wife:string}
 
-enum Colors {
-    black,
-    red,
-    yellow
-}
+// let complex: Complex = {
+//     name: 'Oz',
+//     yearOfBirth: '1990',
+//     clacAge: function() {
+//         return new Date().getFullYear() - this.yearOfBirth
+//     },
+//     wife: 'Lior'
+// }
 
-for (const key,value in Colors) {
-    console.log(value);
-}
+// console.log(complex)
+type BankAccount = {money: number, deposit: (value: number) => void };
+let bankAccount: BankAccount = {
+    money: 2000,
+    deposit(value: number): void  {
+        this.money += value;
+    }
+};
+type Person = { name: string, bankAccount: BankAccount, hobbies:string[] }
+let myself: Person = {
+    name: "Max",
+    bankAccount: bankAccount,
+    hobbies: ["Sports", "Cooking"]
+};
+ 
+myself.bankAccount.deposit(3000);
+ 
+console.log(myself);
+ 
